@@ -1,0 +1,48 @@
+.rightbar {
+  flex: 2.5;
+  height: calc(100vh - 60px);
+  overflow-y: scroll;
+}
+.rightbarWrapper {
+  padding: 10px;
+}
+.pageHeading {
+  display: flex;
+  justify-content: space-between;
+}
+.pageContent {
+  display: flex;
+  align-items: center;
+}
+.pageContentImg {
+  margin-right: 10px;
+}
+.contentImg {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.contactHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.contactIcons {
+  display: flex;
+  align-items: center;
+}
+.friend {
+  align-items: center;
+  display: flex;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.friend:hover {
+  background-color: #e4e6e9;
+}
+.friendImg {
+  position: relative;
+  margin-right: 10px;
+}

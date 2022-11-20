@@ -1,0 +1,88 @@
+.icons {
+  color: blue;
+  font-size: 50px !important;
+}
+.topbar {
+  background-color: pink;
+  height: 60px;
+  position: sticky;
+  top: 0;
+}
+.topbarWrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.topbarLeft {
+  flex: 3;
+  display: flex;
+  align-items: center;
+}
+.search {
+  display: flex;
+  background-color: #f0f2f5;
+  border-radius: 20px;
+  align-items: center;
+  width: 60%;
+}
+.searchIcon {
+  margin-left: 10px;
+}
+.searchInput {
+  width: 100%;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  background-color: inherit;
+}
+.topbarCenter {
+  flex: 6;
+}
+
+.menuStyle {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.menu {
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 40px;
+}
+.menu:hover {
+  background-color: #f0f2f5;
+}
+.menuIcons {
+  font-size: 30px !important;
+}
+.topbarRight {
+  flex: 3;
+}
+.topbarUser {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+.user {
+  background-color: #e4e6e9;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+  position: relative;
+}
+.userLink {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.userProfileImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}

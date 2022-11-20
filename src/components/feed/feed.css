@@ -1,0 +1,9 @@
+.feed {
+  flex: 6;
+  height: calc(100vh - 70px);
+  overflow-y: scroll;
+}
+.feedWrapper {
+  width: 70%;
+  margin: 0 auto;
+}

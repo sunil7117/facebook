@@ -1,0 +1,51 @@
+.sidebar {
+  flex: 2.5;
+  height: calc(100vh - 60px);
+  overflow-y: scroll;
+}
+.sidebarWrapper {
+  position: relative;
+}
+.sidebarMenus {
+  padding: 10px 0px 0px 10px;
+}
+.sidebarMenuItem {
+  align-items: center;
+  display: flex;
+  padding: 5px;
+  cursor: pointer;
+}
+.sidebarMenuItem:hover {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: #e4e6e9;
+}
+
+.sideMenuIcon {
+  font-size: 30px !important;
+}
+.iconColor {
+  color: blue;
+}
+
+.sidebarText {
+  color: #2e2f2f;
+  font-weight: 600;
+}
+.shortcut {
+  font-size: 20px;
+  color: #c3c5c8;
+}
+.sidebarshortcut {
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+}
+.sidebarFooter {
+  color: #d8dadf;
+  padding: 10px;
+}
+.sidebarFooter1 {
+  display: flex;
+  color: #d8dadf;
+}
