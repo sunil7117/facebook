@@ -35,7 +35,7 @@
       "react-app/jest"
     ]
   },
-  "proxy": "http://localhost:9000/api",
+  "proxy": "https://faceboookapi1.herokuapp.com/api",
   "browserslist": {
     "production": [
       ">0.2%",

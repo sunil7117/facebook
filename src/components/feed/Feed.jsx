@@ -1,16 +1,8 @@
-import {
-  ArrowCircleDown,
-  ExpandCircleDown,
-  MoreHoriz,
-  ThumbUp,
-  ThumbUpOffAltOutlined,
-} from "@mui/icons-material";
 import React from "react";
 import Post from "../post/Post";
 import Share from "../share/Share";
 import "./feed.css";
 import { Posts } from "../../utils/post.js";
-import { user } from "../../utils/post";
 const Feed = () => {
   return (
     <div className="feed">
