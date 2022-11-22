@@ -4,14 +4,27 @@ import {
   VideocamOffOutlined,
 } from "@mui/icons-material";
 import "./share.css";
-import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
+import React, { useRef, useState } from "react";
 import Modal from "react-bootstrap/Modal";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 const Share = () => {
+  const { currentUser } = useSelector((state) => state.user);
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const handleClose = async () => {
+    setShow(false);
+    const desc = postInput.current.value;
+    const postData = {
+      userId: currentUser._id,
+      desc: desc,
+    };
+    await axios.post("/posts", postData);
+    window.location.reload();
+  };
   const handleShow = () => setShow(true);
+  const postInput = useRef();
 
   return (
     <div className="share bw ">
@@ -29,19 +42,52 @@ const Share = () => {
           {/* ==================================================== */}
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Modal heading</Modal.Title>
+              <Modal.Title>Create post</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              Woohoo, you're reading this text in a modal!
+              <div className="formShare">
+                <div className="formSharetop">
+                  <div>
+                    <img
+                      src={PF + "/profile.jpg"}
+                      alt=""
+                      className="sidebarProfile mr-10"
+                    />
+                  </div>
+                  <div>{currentUser.userName}</div>
+                </div>
+                <div className="formSharecenter">
+                  <textarea
+                    rows="5"
+                    className="fs-20"
+                    ref={postInput}
+                    placeholder={`What is your mind ${currentUser.userName}?`}
+                  ></textarea>
+                </div>
+                <div className="formSharebottom">
+                  <div className="colortheme">
+                    <div className="hover">thems</div>
+                    <div className="hover">
+                      <EmojiEmotions />
+                    </div>
+                  </div>
+                  <div className="emoji">
+                    <div className="f-1 hover">Add to Your post</div>
+                    <div className="emojiset f-1">
+                      <div className="hover">1</div>
+                      <div className="hover">1</div>
+                      <div className="hover">1</div>
+                      <div className="hover">1</div>
+                      <div className="hover">1</div>
+                      <div className="hover">1</div>
+                    </div>
+                  </div>
+                </div>
+                <button className="btn-100" onClick={handleClose}>
+                  Post
+                </button>
+              </div>
             </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <Button variant="primary" onClick={handleClose}>
-                Save Changes
-              </Button>
-            </Modal.Footer>
           </Modal>
           {/* ==================================================== */}
         </div>

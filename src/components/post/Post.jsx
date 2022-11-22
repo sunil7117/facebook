@@ -1,29 +1,46 @@
 import { MoreHoriz, ThumbUp, ThumbUpOutlined } from "@mui/icons-material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Comment from "../comment/Comment";
 import "./post.css";
-import { useSelector } from "react-redux";
+import axios from "axios";
+import { format } from "timeago.js";
+import { Link } from "react-router-dom";
+
 const Post = ({ data }) => {
+  const [postUser, setPostUser] = useState({});
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const res = await axios.get(`/users/getUsers?userId=${data.userId}`);
+      setPostUser(res.data);
+    };
+    fetchUsers();
+  });
   const [publicPost, setPublicPost] = useState(false);
   const handlePublicpost = () => {
     setPublicPost(true);
   };
-  const { currentUser } = useSelector((state) => state.user);
   return (
     <div className="postWrapper bw">
       <div className="postTop p-20">
         <div className="userDetails">
-          <img
-            src="/assets/profile.jpg"
-            alt=""
-            className="sidebarProfile mr-10"
-          />
+          <Link to={`/${postUser.userName}`}>
+            <img
+              src="/assets/profile.jpg"
+              alt=""
+              className="sidebarProfile mr-10"
+            />
+          </Link>
           <div className="userInfo">
             <div className="nameDate lh-1">
               <div className="fs-16 fw-600 userName ">
-                {currentUser.userName}
+                <Link
+                  to={`/${postUser.userName}`}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  {postUser.userName}
+                </Link>
               </div>
-              <div className="fs-12 ">5D ago</div>
+              <div className="fs-12 ">{format(data.createdAt)}</div>
             </div>
             <div>
               <MoreHoriz />
@@ -32,14 +49,14 @@ const Post = ({ data }) => {
         </div>
       </div>
       <div className="postCenter">
-        <p className="userPostComment p-20">here is new posts</p>
+        <p className="userPostComment p-20">{data.desc}</p>
         <img src="/assets/profile.jpg" alt="" className="userPostImg" />
       </div>
       <div className="postBottom p-20">
         <div className="postBottomTop">
           <div className="bottomTopLike">
             <ThumbUp className="mr-10" />
-            <span className="lblack">8</span>
+            <span className="lblack">{data.likes.length}</span>
           </div>
           <div className="bottomTopLike lblack ">20 Comments</div>
         </div>

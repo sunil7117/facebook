@@ -7,6 +7,7 @@ import {
 } from "@mui/icons-material";
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./sidebar.css";
 const Sidebar = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -15,14 +16,19 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebarWrapper">
         <ul className="sidebarMenus">
-          <li className="sidebarMenuItem">
-            <img
-              className="sidebarProfile mr-10"
-              src="/assets/profile.jpg"
-              alt=""
-            />
-            <h3 className="sidebarText fs-16">{currentUser.userName}</h3>
-          </li>
+          <Link
+            to={`/${currentUser.userName}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <li className="sidebarMenuItem">
+              <img
+                className="sidebarProfile mr-10"
+                src="/assets/profile.jpg"
+                alt=""
+              />
+              <h3 className="sidebarText fs-16">{currentUser.userName}</h3>
+            </li>
+          </Link>
           <li className="sidebarMenuItem iconColor">
             <Groups className="sideMenuIcon mr-10" />
             <span className="sidebarText">Friends</span>

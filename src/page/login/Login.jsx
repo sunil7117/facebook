@@ -9,29 +9,73 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const email = useRef();
-  const password = useRef();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    var userData;
+  let userData;
+  let gender = null;
+  const handleClose = async () => {
+    setShow(false);
+    if (female.current.checked) {
+      gender = female.current.value;
+    } else if (male.current.checked) {
+      gender = male.current.value;
+    } else {
+      gender = custom.current.value;
+    }
+    const date = new Date(`${selecty.value}-${selectm.value}-${selectd.value}`);
     if (isNaN(email.current.value)) {
       userData = {
+        firstName: firstName.current.value,
+        lastName: surName.current.value,
         email: email.current.value,
+        password: password.current.value,
+        dob: date.toLocaleDateString(),
+        gender: gender,
+      };
+    } else {
+      userData = {
+        firstName: firstName.current.value,
+        lastName: surName.current.value,
+        mobile: email.current.value,
+        password: password.current.value,
+        dob: date.toLocaleDateString(),
+        gender: gender,
+      };
+    }
+  };
+
+  const handleShow = () => setShow(true);
+  const firstName = useRef();
+  const surName = useRef();
+  const loginemail = useRef();
+  const email = useRef();
+  const password = useRef();
+  const female = useRef();
+  const male = useRef();
+  const custom = useRef();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [selectd, setSelectd] = useState(null);
+  const [selectm, setSelectm] = useState(null);
+  const [selecty, setSelecty] = useState(null);
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    if (isNaN(loginemail.current.value)) {
+      userData = {
+        email: loginemail.current.value,
         password: password.current.value,
       };
     } else {
       userData = {
-        mobile: email.current.value,
+        mobile: loginemail.current.value,
         password: password.current.value,
       };
     }
+    console.log(userData);
     dispatch(loginStart());
     try {
-      const res = await axios.post("/auth/signin", userData);
+      const res = await axios.post(
+        "https://faceboookapi1.herokuapp.com/api/auth/signin",
+        userData
+      );
       dispatch(loginSuccess(res.data));
       navigate("/");
     } catch (error) {
@@ -56,7 +100,7 @@ const Login = () => {
                 <input
                   className="inputText"
                   placeholder="phone / email "
-                  ref={email}
+                  ref={loginemail}
                 />
               </div>
               <div className="inputPassword">
@@ -96,6 +140,7 @@ const Login = () => {
                           className="inputText"
                           type="text"
                           placeholder="First Name"
+                          ref={firstName}
                         />
                       </div>
                       <div className="formField">
@@ -103,6 +148,7 @@ const Login = () => {
                           className="inputText"
                           type="text"
                           placeholder="Sur Name"
+                          ref={surName}
                         />
                       </div>
                     </div>
@@ -112,6 +158,7 @@ const Login = () => {
                           className="inputText"
                           type="text"
                           placeholder="Email or Mobile number"
+                          ref={email}
                         />
                       </div>
                     </div>
@@ -121,20 +168,32 @@ const Login = () => {
                           type="text"
                           className="inputText"
                           placeholder="New Password"
+                          ref={password}
                         />
                       </div>
                     </div>
                     <div className="lblack fs-12">Date of Birth</div>
                     <div className="formgroup">
                       <div className="formField">
-                        <select className="inputText ">
-                          <option>1</option>
+                        <select
+                          className="inputText "
+                          ref={(input) => setSelectd(input)}
+                        >
+                          <option value="1">1</option>
+                          <option value="2">2</option>
                         </select>
-                        <select className="inputText">
-                          <option>Jan</option>
+                        <select
+                          className="inputText"
+                          ref={(input) => setSelectm(input)}
+                        >
+                          <option value="01">Jan</option>
+                          <option value="02">Feb</option>
                         </select>
-                        <select className="inputText">
-                          <option>2013</option>
+                        <select
+                          className="inputText"
+                          ref={(input) => setSelecty(input)}
+                        >
+                          <option value="2013">2013</option>
                         </select>
                       </div>
                     </div>
@@ -148,6 +207,7 @@ const Login = () => {
                             name="sex"
                             value="female"
                             id="female"
+                            ref={female}
                           />
                         </div>
                       </div>
@@ -159,6 +219,7 @@ const Login = () => {
                             name="sex"
                             value="male"
                             id="male"
+                            ref={male}
                           />
                         </div>
                       </div>
@@ -170,6 +231,7 @@ const Login = () => {
                             name="sex"
                             value="custom"
                             id="custom"
+                            ref={custom}
                           />
                         </div>
                       </div>

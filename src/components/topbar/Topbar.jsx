@@ -10,6 +10,7 @@ import {
 } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/userSlice";
+import { Link } from "react-router-dom";
 
 const Topbar = () => {
   const dispatch = useDispatch();
@@ -20,9 +21,11 @@ const Topbar = () => {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topbarLeft">
-          <div className="logo">
-            <FacebookRounded className="icons" />
-          </div>
+          <Link to="/">
+            <div className="logo">
+              <FacebookRounded className="icons" />
+            </div>
+          </Link>
           <div className="search">
             <Search className="searchIcon" />
             <input className="searchInput" placeholder="Search Facebook" />

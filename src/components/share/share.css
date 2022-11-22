@@ -50,3 +50,45 @@
   font-size: 14px;
   font-weight: 600;
 }
+.formShare {
+  width: 100%;
+}
+.btn-100 {
+  width: 100%;
+  border: none;
+  padding: 5px;
+  border-radius: 8px;
+}
+.formSharetop,
+.colortheme,
+.emoji,
+.emojiset {
+  display: flex;
+  align-items: center;
+}
+textarea {
+  width: 100%;
+  outline: none;
+  border: none;
+  margin-top: 5px;
+}
+.colortheme,
+.emoji {
+  background-color: blue;
+  justify-content: space-between;
+}
+.emoji {
+  border: 1px solid red;
+  background-color: blue;
+  padding: 10px;
+  border-radius: 10px;
+}
+.f-1 {
+  flex: 1;
+}
+.hover {
+  cursor: pointer;
+}
+.emojiset {
+  justify-content: space-around;
+}

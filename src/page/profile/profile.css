@@ -1,0 +1,99 @@
+.profileTop {
+  height: calc(100vh - 60px);
+}
+.profileTopCover {
+  width: 60%;
+  margin: 0 auto;
+}
+.coverTop {
+  height: calc(60vh - 60px);
+}
+.coverImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.coverCenter {
+  height: 30vh;
+  padding: 0 20px;
+}
+.coverCenterInfo {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 90%;
+}
+.coverBottom,
+.subMenuTwo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10vh;
+}
+.subMenuTwo {
+  background-color: black;
+  position: sticky;
+  bottom: 0;
+}
+.userImg {
+  flex: 1;
+}
+.usersImg {
+  position: absolute;
+  top: -25px;
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+}
+.coveruserInfo {
+  flex: 3;
+}
+.userFriendInfo,
+.userFriendInfoRight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.infoRight {
+  padding: 8px 15px;
+  border-radius: 10px;
+  color: white;
+}
+.bgBlue:hover {
+  background-color: #1a6ed8;
+  color: #f2f2f2;
+  cursor: pointer;
+}
+.bgLdark:hover {
+  color: #f2f2f2;
+  cursor: pointer;
+}
+.subMenuList {
+  width: 70%;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.subMenuListText {
+  background-color: blue;
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+.subMenuListText:hover {
+  cursor: pointer;
+  background-color: red;
+}
+
+.more {
+  display: flex;
+  align-items: center;
+}
+.profileBottomInfo {
+  width: 65%;
+  margin: 0 auto;
+}
