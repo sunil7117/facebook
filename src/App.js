@@ -4,7 +4,7 @@ import Login from "./page/login/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Profile from "./page/profile/Profile";
-import Post from "./page/profile/post/Post";
+// import Post from "./page/profile/post/Post";
 import About from "./page/profile/about/About";
 
 const App = () => {

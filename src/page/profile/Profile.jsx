@@ -1,4 +1,4 @@
-import { Camera, Message, MoreHoriz, PersonAddAlt1 } from "@mui/icons-material";
+import { Message, MoreHoriz, PersonAddAlt1 } from "@mui/icons-material";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Topbar from "../../components/topbar/Topbar";
