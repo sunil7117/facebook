@@ -125,11 +125,35 @@ img:hover {
   padding: 12px;
   border-radius: 10px;
 }
+.optionsHeading {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-radius: 10px;
+}
 .optionIcon {
   font-size: 30px !important;
 }
-
+.optionIconBack {
+  width: 120;
+  height: 120;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 30px !important;
+}
+.optionIconBack:hover {
+  background-color: var(--main-color);
+}
+.heading {
+  display: flex;
+  align-items: center;
+}
 .optionName {
+  margin-left: 10px;
+}
+.optionNameHeading {
+  font-weight: 700;
+  font-size: 24px;
   margin-left: 10px;
 }
 .options:hover {

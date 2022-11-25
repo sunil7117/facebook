@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Setting from "./components/setting/Setting";
 import Home from "./page/home/Home";
 import Login from "./page/login/Login";
 
@@ -9,6 +10,7 @@ const App = () => {
   console.log(currentUser);
   return (
     <>
+      {/* <Text /> */}
       <BrowserRouter>
         <Routes>
           <Route element />
@@ -16,6 +18,10 @@ const App = () => {
           <Route
             path="/login"
             element={currentUser == null ? <Login /> : <Home />}
+          />
+          <Route
+            path="/setting"
+            element={currentUser == null ? <Login /> : <Setting />}
           />
         </Routes>
       </BrowserRouter>

@@ -1,31 +1,24 @@
 import {
   Apps,
-  Bedtime,
   FacebookOutlined,
-  Feedback,
   Groups2Outlined,
-  Help,
   Home,
-  KeyboardArrowRight,
-  Logout,
   Message,
   Notifications,
   Search,
-  SettingsApplications,
   Sports,
   YardOutlined,
 } from "@mui/icons-material";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { logout } from "../../redux/userSlice";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import Profile from "./profile/Profile";
 import "./topbar.scss";
 
 const Topbar = () => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const { currentUser } = useSelector((state) => state.user);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   console.log(currentUser);
   //   ========================================
   //          handleProfile
@@ -35,18 +28,14 @@ const Topbar = () => {
     hideProfile === true && setHideProfile(false);
   };
   //   ========================================
-  //   =============================================
-  //              LOgout
-  const handleLogout = () => {
-    dispatch(logout());
-    navigate("/login");
-  };
-  //   =============================================
+
   return (
     <div className="topbar">
       <div className="left">
         <div className="logo">
-          <FacebookOutlined className="logoIcon" />
+          <Link to="/">
+            <FacebookOutlined className="logoIcon" />
+          </Link>
           <div className="search">
             <Search className="searchIcon" />
             <input type="text" placeholder="Search..." />
@@ -113,72 +102,12 @@ const Topbar = () => {
               onClick={handleProfile}
               className="profile"
               alt=""
-            />{" "}
+            />
             <div className="hoverMenu">
               <span>Account</span>
             </div>
             <div className={hideProfile ? "profiles box show" : "profiles box"}>
-              <div className="userProfile box">
-                <div>
-                  <img src={`${PF}/profile.jpg`} className="profile" alt="" />
-                  <span className="optionName">{currentUser.firstName}</span>
-                </div>
-                <div>S</div>
-              </div>
-              <hr />
-              <div className="settings">
-                <div className="options">
-                  <div>
-                    <span className="circle">
-                      <SettingsApplications className="optionIcon" />
-                    </span>
-                    <span className="optionName">Settings & Privcy</span>
-                  </div>
-                  <div>
-                    <KeyboardArrowRight className="optionIcon" />
-                  </div>
-                </div>
-                <div className="options">
-                  <div>
-                    <span className="circle">
-                      <Help className="optionIcon" />
-                    </span>
-                    <span className="optionName">Help & Support</span>
-                  </div>
-                  <div>
-                    <KeyboardArrowRight className="optionIcon" />
-                  </div>
-                </div>
-                <div className="options">
-                  <div>
-                    <span className="circle">
-                      <Bedtime className="optionIcon" />
-                    </span>
-                    <span className="optionName">Display & accessbility</span>
-                  </div>
-                  <div>
-                    <KeyboardArrowRight className="optionIcon" />
-                  </div>
-                </div>
-                <div className="options">
-                  <div>
-                    <span className="circle">
-                      <Feedback className="optionIcon" />
-                    </span>
-                    <span className="optionName">Give feedback</span>
-                  </div>
-                </div>
-                <div className="options">
-                  <div>
-                    <span className="circle">
-                      <Logout className="optionIcon" />
-                    </span>
-                    <span className="optionName" onClick={handleLogout}>
-                      Logout
-                    </span>
-                  </div>
-                </div>
-              </div>
+              <Profile />
             </div>
           </li>
         </ul>
