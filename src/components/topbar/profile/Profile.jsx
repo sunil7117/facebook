@@ -219,7 +219,7 @@ const Profile = () => {
         <>
           <div className="userProfile box">
             <div>
-              <img src={`${PF}/profile.jpg`} className="profile" alt="" />
+              <img src={`${PF}profile.jpg`} className="profile" alt="" />
               <span className="optionName">{currentUser.firstName}</span>
             </div>
             <div>S</div>

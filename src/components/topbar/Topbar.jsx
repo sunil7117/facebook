@@ -98,7 +98,7 @@ const Topbar = () => {
           </li>
           <li className="menuLink p">
             <img
-              src={`${PF}/profile.jpg`}
+              src={`${PF}profile.jpg`}
               onClick={handleProfile}
               className="profile"
               alt=""
