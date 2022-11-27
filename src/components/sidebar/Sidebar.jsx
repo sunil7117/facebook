@@ -109,8 +109,7 @@ const Sidebar = () => {
               <span>
                 Ad choices <SkipNext />·{" "}
               </span>
-            </div>
-            <div className="sideFooterBottom">
+              <div className="sideFooterBottom"></div>
               <span>Cookies · </span> More · <span>Meta © 2022</span>
             </div>
           </div>

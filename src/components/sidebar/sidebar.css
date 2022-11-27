@@ -30,14 +30,6 @@
   top: 0px;
 }
 
-.bottomMenu {
-  position: relative;
-}
-
-.sideFooter {
-  position: absolute;
-  bottom: -42px;
-}
 .menuItem {
   display: flex;
   align-items: center;
