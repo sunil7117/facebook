@@ -1,4 +1,6 @@
+import Post from "../post/Post";
 import Rightbar from "../rightbar/Rightbar";
+import Share from "../share/Share";
 import Sidebar from "../sidebar/Sidebar";
 import "./feed.scss";
 
@@ -8,56 +10,8 @@ const Feed = () => {
       <Sidebar />
       <div className="feedContainers">
         <div className="feedContainer">
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
-          <h1>hello</h1>
+          <Share />
+          <Post />
         </div>
       </div>
       <Rightbar />

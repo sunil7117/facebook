@@ -1,0 +1,76 @@
+.post {
+  background-color: white;
+  -webkit-box-shadow: 2px 0px 1px 2px var(--main-color);
+  box-shadow: 2px 0px 1px 2px var(--main-color);
+  border-radius: 10px;
+  padding: 10px 0;
+}
+.postContainer {
+}
+.postpadding {
+  padding: 10px 10px 0 10px;
+}
+.postTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.postTopLeft {
+  display: flex;
+  align-items: center;
+}
+.postTopLeft.profile {
+}
+.postCenterTop {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.postTopLeftInfo {
+  margin-left: 10px;
+  line-height: 0.9;
+}
+.postTopLeftInfo .userName {
+  cursor: pointer;
+}
+.postTopLeftInfo .userdatetime {
+  font-size: 14px;
+}
+.userdatetime,
+.postTopRight {
+  color: var(--text-color);
+}
+.postCenter {
+}
+.postCenterTop {
+}
+.postImg {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.postBottom {
+  color: var(--text-color);
+}
+.postBottomTop {
+  display: flex;
+  justify-content: space-between;
+}
+.postBottomCenter {
+  display: flex;
+  justify-content: space-around;
+  color: var(--text-color);
+}
+.pbcoption {
+  display: flex;
+  align-items: center;
+  padding: 5px 40px;
+  border-radius: 20px;
+}
+.pbcIcon {
+  margin-right: 10px;
+}
+.pbcoption:hover {
+  cursor: pointer;
+  background-color: red;
+}
