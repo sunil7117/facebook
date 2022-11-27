@@ -1,3 +1,12 @@
 .feed {
+  display: flex;
+  background-color: var(--main-color);
+}
+.feedContainers {
   flex: 5;
+}
+.feedContainer {
+  width: 70%;
+  background-color: red;
+  margin: 0 auto;
 }

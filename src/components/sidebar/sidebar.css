@@ -2,7 +2,23 @@
   flex: 2;
   background-color: var(--main-color);
   height: calc(100vh - 60px);
+  position: sticky;
+  top: 60px;
   overflow-y: hidden;
+}
+/* width */
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.sidebar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.sidebar::-webkit-scrollbar-thumb {
+  background: #888;
 }
 .sidebar:hover {
   overflow-y: scroll;
@@ -10,6 +26,8 @@
 .sidebarContainer {
   width: 100%;
   padding: 5px 0 5px 10px;
+  position: sticky;
+  top: 0px;
 }
 
 .bottomMenu {
@@ -20,21 +38,6 @@
   position: absolute;
   bottom: -42px;
 }
-/* width */
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
 .menuItem {
   display: flex;
   align-items: center;

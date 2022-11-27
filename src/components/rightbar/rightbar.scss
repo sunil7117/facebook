@@ -3,9 +3,25 @@
   height: calc(100vh - 60px);
   background-color: var(--main-color);
   overflow-y: hidden;
+  position: sticky;
+  top: 60px;
 }
 .rightbar:hover {
   overflow-y: scroll;
+}
+/* width */
+.rightbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.rightbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.rightbar::-webkit-scrollbar-thumb {
+  background: #888;
 }
 .rightbarContainer {
   padding: 0 10px;

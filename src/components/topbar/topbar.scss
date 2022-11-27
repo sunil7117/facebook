@@ -1,4 +1,6 @@
 .topbar {
+  position: sticky;
+  top: 0;
   background-color: var(--box-color);
   display: flex;
   height: 60px;
