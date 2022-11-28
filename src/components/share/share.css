@@ -29,13 +29,24 @@
 }
 .shareIcon {
   font-size: 30px !important;
-  margin-right: 8px;
 }
 .shareOption {
+  gap: 5px;
+  display: flex;
+  align-items: center;
   padding: 5px 10px;
   border-radius: 20px;
 }
 .shareOption:hover {
   background-color: #f2f2f2;
   cursor: pointer;
+}
+.modelHeading {
+  width: 100%;
+  text-align: center;
+}
+.modelUserInfo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
