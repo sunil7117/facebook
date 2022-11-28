@@ -19,7 +19,7 @@ const Topbar = () => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const { currentUser } = useSelector((state) => state.user);
 
-  console.log(currentUser);
+  // console.log(currentUser);
   //   ========================================
   //          handleProfile
   const [hideProfile, setHideProfile] = useState(false);

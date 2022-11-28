@@ -49,12 +49,11 @@
   display: flex;
   gap: 10px;
   flex: 1;
-  justify-content: space-between;
   align-items: center;
 }
 .modelUserInfo textarea {
   width: 100%;
-  margin-top: 10px;
+  margin: 20px 0;
   border: none;
   outline: none;
   font-size: 22px;
@@ -66,4 +65,32 @@
   display: flex;
   justify-content: space-between;
   flex: 1;
+}
+.w-100 {
+  width: 100%;
+  outline: none;
+  border: none;
+  font-weight: 600;
+  padding: 8px;
+  border-radius: 10px;
+}
+/* cursor: pointer; */
+.userTags {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.border {
+  padding: 15px;
+  border-radius: 10px;
+  align-items: center;
+  border: 1px solid silver;
+}
+.modelUserInfo .icon {
+  cursor: pointer;
+}
+
+.no {
+  cursor: not-allowed !important;
 }

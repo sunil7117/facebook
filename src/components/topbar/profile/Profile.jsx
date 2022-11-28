@@ -195,7 +195,7 @@ const Profile = () => {
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(currentUser);
+  // console.log(currentUser);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -210,8 +210,6 @@ const Profile = () => {
     setActive(setting);
     setOpenSetting(!openSetting);
   };
-  console.log(openSetting);
-  console.log(active);
   //   =============================================
   return (
     <>

@@ -7,7 +7,7 @@ import Login from "./page/login/Login";
 
 const App = () => {
   const { currentUser } = useSelector((state) => state.user);
-  console.log(currentUser);
+  // console.log(currentUser);
   return (
     <>
       {/* <Text /> */}

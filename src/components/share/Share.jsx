@@ -1,23 +1,61 @@
 import "./share.css";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   EmojiEmotions,
+  EmojiEmotionsOutlined,
   Flag,
-  LocationCity,
+  Gradient,
+  LocationOn,
   MoreHoriz,
   PhotoAlbum,
+  Sell,
   VideoCall,
 } from "@mui/icons-material";
 import { Button, Modal } from "react-bootstrap";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 const Share = () => {
+  const { currentUser } = useSelector((state) => state.user);
+  console.log(currentUser);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  // const SERVER =
+  // "http://localhost:9000/api/" || process.env.REACT_APP_SERVERAPI;
+  const SERVER = process.env.REACT_APP_SERVERAPI;
+  console.log(SERVER);
   // Open Model for share
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShareShow = () => setShow(true);
-
+  const handleClose = () => {
+    setShow(false);
+  };
+  const handleShareShow = () => {
+    setDisabe(true);
+    setShow(true);
+  };
   // Open Model for share
+  const [disable, setDisabe] = useState(true);
+  const uploadPost = useRef();
+  let data;
+  const showpostValue = () => {
+    if (uploadPost.current.value.length > 0) {
+      data = uploadPost.current.value;
+      setDisabe(false);
+    } else {
+      setDisabe(true);
+    }
+  };
+  const handlePost = async () => {
+    const post = {
+      userId: currentUser._id,
+      post: data,
+    };
+    console.log(post);
+    setShow(false);
+    try {
+      const res = await axios.post("posts/", { post });
+      console.log(res.data);
+    } catch (err) {}
+  };
   return (
     <div className="share">
       <div className="shareContainer postpadding">
@@ -43,44 +81,61 @@ const Share = () => {
               <div className="modelUserInfo">
                 <textarea
                   rows="4"
+                  ref={uploadPost}
                   placeholder="What on your mind, sunil?"
+                  onChange={showpostValue}
                 ></textarea>
               </div>
               <div className="modelUserInfo">
-                <div>T</div>
-                <div>
-                  <EmojiEmotions />
+                <div className="userTags">
+                  <div className="icon">
+                    <Gradient />
+                  </div>
+                  <div>
+                    <EmojiEmotionsOutlined
+                      className="icon"
+                      htmlColor="#696b6f"
+                    />
+                  </div>
                 </div>
               </div>
               <div className="modelUserInfo">
-                <div className="addPosts">Add to your post</div>
-                <div className="posts">
-                  <span>
-                    <PhotoAlbum />
-                  </span>
-                  <span>
-                    <EmojiEmotions />
-                  </span>
-                  <span>
-                    <LocationCity />
-                  </span>
-                  <span>
-                    <Flag />
-                  </span>
-                  <span>
-                    <MoreHoriz />
-                  </span>
+                <div className="userTags border">
+                  <div className="addPosts icon">Add to your post</div>
+                  <div className="posts">
+                    <span>
+                      <PhotoAlbum className="icon" htmlColor="green" />
+                    </span>
+                    <span>
+                      <Sell className="icon" htmlColor="blue" />
+                    </span>
+                    <span>
+                      <EmojiEmotionsOutlined
+                        className="icon"
+                        htmlColor="tomato"
+                      />
+                    </span>
+                    <span>
+                      <LocationOn className="icon" htmlColor="red" />
+                    </span>
+                    <span>
+                      <Flag className="icon" htmlColor="lightblue" />
+                    </span>
+                    <span>
+                      <MoreHoriz />
+                    </span>
+                  </div>
                 </div>
               </div>
+              <Button
+                className={disable === true ? "w-100 no" : "w-100"}
+                variant={disable ? "secondary" : "primary"}
+                onClick={handlePost}
+                disabled={disable === true ? true : false}
+              >
+                Post
+              </Button>
             </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <Button variant="primary" onClick={handleClose}>
-                Save Changes
-              </Button>
-            </Modal.Footer>
           </Modal>
         </div>
         <hr />
