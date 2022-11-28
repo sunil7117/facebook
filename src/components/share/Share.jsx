@@ -1,6 +1,13 @@
 import "./share.css";
 import React, { useState } from "react";
-import { EmojiEmotions, PhotoAlbum, VideoCall } from "@mui/icons-material";
+import {
+  EmojiEmotions,
+  Flag,
+  LocationCity,
+  MoreHoriz,
+  PhotoAlbum,
+  VideoCall,
+} from "@mui/icons-material";
 import { Button, Modal } from "react-bootstrap";
 
 const Share = () => {
@@ -31,6 +38,38 @@ const Share = () => {
                 <div className="userInfo">
                   <div className="userName">sunil</div>
                   <div className="userName"></div>
+                </div>
+              </div>
+              <div className="modelUserInfo">
+                <textarea
+                  rows="4"
+                  placeholder="What on your mind, sunil?"
+                ></textarea>
+              </div>
+              <div className="modelUserInfo">
+                <div>T</div>
+                <div>
+                  <EmojiEmotions />
+                </div>
+              </div>
+              <div className="modelUserInfo">
+                <div className="addPosts">Add to your post</div>
+                <div className="posts">
+                  <span>
+                    <PhotoAlbum />
+                  </span>
+                  <span>
+                    <EmojiEmotions />
+                  </span>
+                  <span>
+                    <LocationCity />
+                  </span>
+                  <span>
+                    <Flag />
+                  </span>
+                  <span>
+                    <MoreHoriz />
+                  </span>
                 </div>
               </div>
             </Modal.Body>
