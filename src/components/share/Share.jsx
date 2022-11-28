@@ -22,7 +22,7 @@ const Share = () => {
   // const SERVER =
   // "http://localhost:9000/api/" || process.env.REACT_APP_SERVERAPI;
   const SERVER = process.env.REACT_APP_SERVERAPI;
-  console.log(SERVER);
+  console.log(SERVER + "posts");
   // Open Model for share
   const [show, setShow] = useState(false);
   const handleClose = () => {
@@ -52,7 +52,7 @@ const Share = () => {
     console.log(post);
     setShow(false);
     try {
-      const res = await axios.post(`${PF}post/`, { post });
+      const res = await axios.post(`${PF}posts/`, post);
       console.log(res.data);
     } catch (err) {}
   };
