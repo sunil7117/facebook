@@ -52,7 +52,7 @@ const Share = () => {
     console.log(post);
     setShow(false);
     try {
-      const res = await axios.post("posts/", { post });
+      const res = await axios.post(`${PF}post/`, { post });
       console.log(res.data);
     } catch (err) {}
   };
