@@ -8,7 +8,6 @@ import {
   PersonAdd,
   Redeem,
   Settings,
-  SettingsInputAntennaTwoTone,
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 
