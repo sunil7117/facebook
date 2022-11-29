@@ -8,6 +8,7 @@ import {
   YouTube,
 } from "@mui/icons-material";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./sidebar.css";
 const Sidebar = () => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -26,10 +27,15 @@ const Sidebar = () => {
               </span>
             </li>
             <li className="menuItem">
-              <span className="menuIcon">
-                <People />
-              </span>
-              <span className="menuText">Friends</span>
+              <Link
+                to="/friends"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <span className="menuIcon">
+                  <People />
+                </span>
+                <span className="menuText">Friends</span>
+              </Link>
             </li>
             <li className="menuItem">
               <span className="menuIcon">
