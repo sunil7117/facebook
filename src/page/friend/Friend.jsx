@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 
 const Friend = () => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-  const [frdRequest, SetFrdRequest] = useState(false);
+  const [frdRequest, SetFrdRequest] = useState(true);
   useEffect(() => {
     SetFrdRequest();
   });
