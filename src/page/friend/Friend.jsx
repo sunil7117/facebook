@@ -16,7 +16,7 @@ const Friend = () => {
   const [frdRequest, SetFrdRequest] = useState(true);
   useEffect(() => {
     SetFrdRequest();
-  });
+  }, []);
   return (
     <div className="friend">
       <Topbar />
