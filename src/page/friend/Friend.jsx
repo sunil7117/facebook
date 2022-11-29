@@ -4,18 +4,20 @@ import Topbar from "../../components/topbar/Topbar";
 import {
   Diversity3,
   Group,
-  Groups,
   KeyboardArrowRight,
   PersonAdd,
   Redeem,
-  RedeemRounded,
   Settings,
+  SettingsInputAntennaTwoTone,
 } from "@mui/icons-material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Friend = () => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [frdRequest, SetFrdRequest] = useState(false);
+  useEffect(() => {
+    SetFrdRequest();
+  });
   return (
     <div className="friend">
       <Topbar />

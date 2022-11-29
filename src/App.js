@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Setting from "./components/setting/Setting";
 import Friend from "./page/friend/Friend";
-import Test from "./page/friend/Test";
 import Home from "./page/home/Home";
 import Login from "./page/login/Login";
 
