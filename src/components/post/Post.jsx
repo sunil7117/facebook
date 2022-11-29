@@ -1,8 +1,10 @@
 import "./post.css";
 import React from "react";
 import { MoreHoriz, ThumbUp } from "@mui/icons-material";
-
-const Post = () => {
+import { useSelector } from "react-redux";
+import { format } from "timeago.js";
+const Post = ({ record }) => {
+  const { currentUser } = useSelector((state) => state.user);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   return (
     <div className="post ">
@@ -11,8 +13,8 @@ const Post = () => {
           <div className="postTopLeft">
             <img src={PF + "profile.jpg"} alt="" className="profile" />
             <div className="postTopLeftInfo">
-              <div className="userName">Sunil kumar</div>
-              <div className="userdatetime">date Time</div>
+              <div className="userName">{currentUser.firstName}</div>
+              <div className="userdatetime">{format(record?.createdAt)}</div>
             </div>
           </div>
           <div className="postTopRight">
@@ -20,11 +22,7 @@ const Post = () => {
           </div>
         </div>
         <div className="postCenter">
-          <div className="postCenterTop postpadding">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas
-            quidem omnis ullam maxime debitis asperiores nemo aliquid architecto
-            facere fugiat?
-          </div>
+          <div className="postCenterTop postpadding">{record?.desc}</div>
           <div className="postCenterBottom">
             <img src={PF + "profile.jpg"} alt="" className="postImg" />
           </div>

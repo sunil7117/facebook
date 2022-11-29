@@ -17,12 +17,12 @@ import { useSelector } from "react-redux";
 
 const Share = () => {
   const { currentUser } = useSelector((state) => state.user);
-  console.log(currentUser);
+  // console.log(currentUser);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   // const SERVER =
-  // "http://localhost:9000/api/" || process.env.REACT_APP_SERVERAPI;
+  //   "http://localhost:9000/api/" || process.env.REACT_APP_SERVERAPI;
   const SERVER = process.env.REACT_APP_SERVERAPI;
-  console.log(SERVER + "posts");
+  // console.log(SERVER + "posts");
   // Open Model for share
   const [show, setShow] = useState(false);
   const handleClose = () => {
@@ -47,13 +47,14 @@ const Share = () => {
   const handlePost = async () => {
     const post = {
       userId: currentUser._id,
-      post: data,
+      desc: data,
     };
     console.log(post);
     setShow(false);
     try {
-      const res = await axios.post(`${PF}posts/`, post);
+      const res = await axios.post(`${SERVER}posts/create`, post);
       console.log(res.data);
+      window.location.reload();
     } catch (err) {}
   };
   return (
@@ -62,7 +63,7 @@ const Share = () => {
         <div className="shareTop">
           <img src={PF + "profile.jpg"} alt="" className="profile" />
           <button onClick={handleShareShow}>
-            What's on in your mind, sunil?
+            What's on in your mind, {currentUser.firstName}?
           </button>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -74,7 +75,9 @@ const Share = () => {
               <div className="modelUserInfo">
                 <img src={PF + "profile.jpg"} alt="" className="profile" />
                 <div className="userInfo">
-                  <div className="userName">sunil</div>
+                  <div className="userName">
+                    {currentUser.firstName + currentUser.lastName}
+                  </div>
                   <div className="userName"></div>
                 </div>
               </div>
@@ -82,7 +85,7 @@ const Share = () => {
                 <textarea
                   rows="4"
                   ref={uploadPost}
-                  placeholder="What on your mind, sunil?"
+                  placeholder={`What on your mind, ${currentUser.firstName}?`}
                   onChange={showpostValue}
                 ></textarea>
               </div>

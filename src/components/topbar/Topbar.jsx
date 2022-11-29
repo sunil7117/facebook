@@ -10,16 +10,16 @@ import {
   YardOutlined,
 } from "@mui/icons-material";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Profile from "./profile/Profile";
 import "./topbar.scss";
 
 const Topbar = () => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-  const { currentUser } = useSelector((state) => state.user);
+  // const { currentUser } = useSelector((state) => state.user);
 
-  console.log(currentUser);
+  // console.log(currentUser);
   //   ========================================
   //          handleProfile
   const [hideProfile, setHideProfile] = useState(false);
