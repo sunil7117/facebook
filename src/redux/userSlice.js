@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   currentUser: null,
+  friends: null,
   isFetching: false,
   isError: false,
 };
@@ -36,6 +37,9 @@ export const userSlice = createSlice({
       state.isError = false;
       state.isFetching = false;
     },
+    loadfriends: (state, actions) => {
+      state.friends = actions.payload;
+    },
   },
 });
 export const {
@@ -46,5 +50,6 @@ export const {
   registerFailure,
   registerStart,
   registerSuccess,
+  loadUsers,
 } = userSlice.actions;
 export default userSlice.reducer;

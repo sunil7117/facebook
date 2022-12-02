@@ -1,11 +1,31 @@
 import "./post.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MoreHoriz, ThumbUp } from "@mui/icons-material";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { format } from "timeago.js";
+import axios from "axios";
+import More from "../more/More";
 const Post = ({ record }) => {
-  const { currentUser } = useSelector((state) => state.user);
+  // alert(record?.userId);
+  // const { currentUser } = useSelector((state) => state.user);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  // const SERVER =
+  //   "http://localhost:9000/api/" || process.env.REACT_APP_SERVERAPI;
+
+  const SERVER = process.env.REACT_APP_SERVERAPI;
+  const [postUser, setPostUser] = useState();
+  useEffect(() => {
+    const getPostUser = async () => {
+      const res = await axios.get(`${SERVER}users/${record?.userId}`);
+      console.log(res.data);
+      setPostUser(res.data);
+    };
+    getPostUser();
+  }, [SERVER, record?.userId]);
+  const [hideMore, setHideMore] = useState(true);
+  const handleEditPost = () => {
+    setHideMore(!hideMore);
+  };
   return (
     <div className="post ">
       <div className="postContainer">
@@ -13,12 +33,13 @@ const Post = ({ record }) => {
           <div className="postTopLeft">
             <img src={PF + "profile.jpg"} alt="" className="profile" />
             <div className="postTopLeftInfo">
-              <div className="userName">{currentUser.firstName}</div>
+              <div className="userName">{postUser?.firstName}</div>
               <div className="userdatetime">{format(record?.createdAt)}</div>
             </div>
           </div>
-          <div className="postTopRight">
-            <MoreHoriz />
+          <div className="postTopRight popupSetup">
+            <MoreHoriz onClick={handleEditPost} className="hoverIcons" />
+            <More hide={hideMore} />
           </div>
         </div>
         <div className="postCenter">

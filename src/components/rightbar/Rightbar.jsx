@@ -1,8 +1,52 @@
 import { MoreHoriz, Search, VideoCall } from "@mui/icons-material";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import "./rightbar.scss";
 
-const Rightbar = () => {
+export const Friends = ({ friendid }) => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  // const SERVER =
+  //   "http://localhost:9000/api/" || process.env.REACT_APP_SERVERAPI;
+
+  const SERVER = process.env.REACT_APP_SERVERAPI;
+
+  const [frdreqList, setFrdreqList] = useState([]);
+  useEffect(() => {
+    const getFriendReqlist = async (id) => {
+      const res = await axios.post(`${SERVER}users/requestlist`, { id });
+      setFrdreqList(res.data);
+    };
+    getFriendReqlist(friendid);
+  }, [SERVER, friendid]);
+  return (
+    <div className="contactFriend">
+      <div className="friendImg">
+        <img src={PF + "profile.jpg"} alt="" className="profile " />
+        <span className="userName">{frdreqList.firstName}</span>
+        <div className="online"></div>
+      </div>
+    </div>
+  );
+};
+
+const Rightbar = () => {
+  const { currentUser } = useSelector((state) => state.user);
+  const SERVER =
+    "http://localhost:9000/api/" || process.env.REACT_APP_SERVERAPI;
+
+  // const SERVER = process.env.REACT_APP_SERVERAPI;
+
+  const [getList, setGetList] = useState();
+  useEffect(() => {
+    const getFriendReqlist = async (id) => {
+      const res = await axios.post(`${SERVER}users/requestlist`, { id });
+
+      setGetList(res.data);
+    };
+    getFriendReqlist(currentUser._id);
+  }, [SERVER, currentUser._id]);
+
   return (
     <div className="rightbar">
       <div className="rightbarContainer">
@@ -27,188 +71,9 @@ const Rightbar = () => {
             </div>
           </div>
           <div className="contactFriends">
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
-            <div className="contactFriend">
-              <div className="friendImg">
-                <img src={PF + "profile.jpg"} alt="" className="profile " />
-                <span className="userName">sunil kumar</span>
-                <div className="online"></div>
-              </div>
-            </div>
+            {getList?.friends.map((id) => (
+              <Friends key={id} friendid={id} />
+            ))}
           </div>
         </div>
         <hr />

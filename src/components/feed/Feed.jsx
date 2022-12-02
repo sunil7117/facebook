@@ -10,7 +10,7 @@ import "./feed.scss";
 const Feed = () => {
   const { currentUser } = useSelector((state) => state.user);
   // const SERVER =
-  // "http://localhost:9000/api/" || process.env.REACT_APP_SERVERAPI;
+  //   "http://localhost:9000/api/" || process.env.REACT_APP_SERVERAPI;
   const SERVER = process.env.REACT_APP_SERVERAPI;
   const [posts, setPosts] = useState([]);
 
@@ -39,7 +39,7 @@ const Feed = () => {
         <div className="feedContainer">
           <Share />
           {posts.map((post) => {
-            console.log(post);
+            // console.log(post);
             return <Post key={post._id} record={post} />;
           })}
           <Post />

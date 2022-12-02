@@ -17,12 +17,10 @@ import { useSelector } from "react-redux";
 
 const Share = () => {
   const { currentUser } = useSelector((state) => state.user);
-  // console.log(currentUser);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   // const SERVER =
   //   "http://localhost:9000/api/" || process.env.REACT_APP_SERVERAPI;
   const SERVER = process.env.REACT_APP_SERVERAPI;
-  // console.log(SERVER + "posts");
   // Open Model for share
   const [show, setShow] = useState(false);
   const handleClose = () => {

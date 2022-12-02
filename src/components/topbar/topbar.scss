@@ -1,100 +1,146 @@
-.topbar {
+.topbartest {
+  display: flex;
+  align-items: center;
   position: sticky;
   top: 0;
-  background-color: var(--box-color);
-  display: flex;
+  background-color: white;
+  box-shadow: 0px 3px 3px 0px rgba(240, 242, 245, 0.75);
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(240, 242, 245, 0.75);
   height: 60px;
-  align-items: center;
-  padding: 0 10px;
   z-index: 1000;
-  -webkit-box-shadow: 2px 0px 1px 2px var(--main-color);
-  box-shadow: 2px 0px 1px 2px var(--main-color);
 }
-.left {
+.lefttest,
+.righttest {
   flex: 3;
 }
-.logo {
-  width: 100%;
-  display: flex;
-  //   justify-content: space-around;
+.centertest {
+  flex: 6;
 }
-.logoIcon {
-  color: var(--focus-color);
-  font-size: 50px !important;
-}
-.search {
+.lefttest {
   display: flex;
   align-items: center;
-  justify-content: center;
-  border: 2px solid var(--main-color);
-  width: 65%;
-  margin-left: 10px;
-  background-color: var(--main-color);
-  border-radius: 10px;
-  padding: 5px;
 }
-.searchIcon {
-  margin-left: 5px;
-}
-input {
-  width: 100%;
-  background-color: var(--main-color);
-  padding: 8px;
-  border-radius: 10px;
-  outline: none;
-  border: none;
-}
-.center {
-  flex: 5;
-}
-.menuLinks {
-  display: flex;
-  justify-content: space-around;
-}
-.menuIcon {
-  font-size: 30px !important;
-}
-.menuLink {
+.searchtest {
   position: relative;
-}
-.hoverMenu {
-  position: absolute;
-  display: none;
-  background-color: black;
-  color: white;
+  padding: 1px;
   border-radius: 10px;
-  top: 55px;
-  font-size: 12px;
-  left: 0;
 }
-.p .hoverMenu {
-  padding: 2px 10px;
-  width: 100%;
-  text-align: center;
+.searchIcontest {
+  position: absolute;
+  top: 10px;
+  left: 8px;
 }
-.menuLink > .menuIcon,
-.menuIcons,
-img:hover {
-  cursor: pointer;
-  background-color: var(--main-color);
+.searchInput {
+  border: none;
+  outline: none;
+  background-color: #f0f2f5;
+  border-radius: 10px;
+  padding: 8px 30px;
 }
-.menuLink:hover .hoverMenu {
+.righttest {
   display: flex;
-  padding: 5px 30px;
+  align-items: center;
+}
+.rightMenu {
+  display: flex;
   width: 100%;
-  text-align: center;
-  flex-direction: column;
-  justify-content: center;
+  padding-right: 10px;
+  justify-content: flex-end;
 }
-.right {
-  flex: 3;
+.RightMenuList {
+  position: relative;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background-color: #f0f2f5;
+  margin: 0 8px;
+  cursor: pointer;
 }
-.menuIcons {
+.RightIcon {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
+.badges {
+  position: absolute;
+  border-radius: 50%;
+  right: 0;
+  top: -5px;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  color: white;
+  font-weight: 600;
+}
+.menuLinks {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.menuLink {
+  position: relative;
+  padding: 8px 30px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menuIcon {
+  font-size: 30px !important;
+}
+.menuLink:hover {
+  background-color: var(--main-color);
+  cursor: pointer;
+}
+
+.hoverMenu {
+  position: absolute;
+  left: 0;
+  display: none;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  top: 52px;
+  font-size: 12px;
+  padding: 5px 20px;
+}
+.RighthoverMenu {
+  position: absolute;
+  top: 45px;
+  right: -20px;
+  display: none;
+  background-color: black;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px 40px;
+}
+
+.menuLink:hover .hoverMenu {
+  display: flex;
+  padding: 5px 20px;
+  width: 100%;
+  justify-content: center;
+}
+.RightMenuList:hover .RighthoverMenu {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+// .menuLink > .menuIcon,
+// .menuIcons,
+// img:hover {
+//   cursor: pointer;
+//   background-color: var(--main-color);
+// }
+
 .box {
   background-color: var(--box-color);
   padding: 10px;
@@ -108,8 +154,17 @@ img:hover {
   position: absolute;
   padding: 10px;
   top: 55px;
-  right: 0;
+  right: -20px;
 }
+.nodification {
+  display: none;
+  width: 320px;
+  position: absolute;
+  padding: 10px;
+  top: 52px;
+  right: -70px;
+}
+
 .show {
   z-index: 100;
   display: block;
