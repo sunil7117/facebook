@@ -10,7 +10,7 @@ export const Friends = ({ friendid }) => {
   //   "http://localhost:9000/api/" || process.env.REACT_APP_SERVERAPI;
 
   const SERVER = process.env.REACT_APP_SERVERAPI;
-
+  console.log(`${SERVER}users/requestlist`, { id });
   const [frdreqList, setFrdreqList] = useState([]);
   useEffect(() => {
     const getFriendReqlist = async (id) => {
