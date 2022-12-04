@@ -32,10 +32,10 @@ export const Friends = ({ friendid }) => {
 
 const Rightbar = () => {
   const { currentUser } = useSelector((state) => state.user);
-  const SERVER =
-    "http://localhost:9000/api/" || process.env.REACT_APP_SERVERAPI;
+  // const SERVER =
+  //   "http://localhost:9000/api/" || process.env.REACT_APP_SERVERAPI;
 
-  // const SERVER = process.env.REACT_APP_SERVERAPI;
+  const SERVER = process.env.REACT_APP_SERVERAPI;
 
   const [getList, setGetList] = useState();
   useEffect(() => {
