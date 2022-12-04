@@ -17,7 +17,7 @@ const Post = ({ record }) => {
   useEffect(() => {
     const getPostUser = async () => {
       const res = await axios.get(`${SERVER}users/${record?.userId}`);
-      console.log(res.data);
+      // console.log(res.data);
       setPostUser(res.data);
     };
     getPostUser();
