@@ -64,7 +64,8 @@ const Login = () => {
           password: password.current.value,
         };
       }
-      const res = await axios.post(`${SERVER}auth/signin`, userData);
+      // const res = await axios.post(`${SERVER}auth/signin`, userData);
+      const res = await axios.post(`${SERVER}/signin`, userData);
       dispatch(loginSuccess(res.data));
       navigate("/");
     } catch (error) {
